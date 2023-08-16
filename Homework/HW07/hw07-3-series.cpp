@@ -16,33 +16,33 @@
         Series = 9 + 99 + 999 + 9999 + 99999 + 999999 + 9999999
         Sum = 11111103
 */
-#include <iostream>
-using namespace std;
+#include <stdio.h>
 
 int main() {
     int n;
     
-    cout << "Enter number :" << endl;
-    cin >> n;
-
-    int series = 0;
+    printf("Enter number:\n");
+    scanf("%d", &n);
+    
+    int term = 9;
     int sum = 0;
-    int multiplier = 1;
-
+    
+    printf("Series = ");
+    
     do {
-        series += 9 * multiplier;
-        sum += series;
-        multiplier *= 10;
-
-        if (multiplier <= n) {
-            cout << series << " + ";
-        } else {
-            cout << series;
+        if (term != 9) {
+            printf(" + ");
         }
-    } while (multiplier <= n);
-
-    cout << endl;
-    cout << "Sum = " << sum << endl;
-
+        
+        printf("%d", term);
+        
+        sum += term;
+        term = term * 10 + 9;
+        
+        n--;
+    } while (n > 0);
+    
+    printf("\nSum = %d\n", sum);
+    
     return 0;
 }
